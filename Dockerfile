@@ -12,6 +12,7 @@ RUN apk --no-cache add wget && \
     mv ${ACTIVEMQ} ${ACTIVEMQ_HOME} && \
     addgroup -S activemq && \
     adduser -S -G activemq activemq && \
+    mkdir ${ACTIVEMQ_HOME}/tmp \
     chown -R activemq:activemq ${ACTIVEMQ_HOME} && \
     chmod -R 777 ${ACTIVEMQ_HOME} && \
     mkdir -p ${ACTIVEMQ_DATA} && \
