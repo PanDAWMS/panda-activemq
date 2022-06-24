@@ -23,4 +23,4 @@ USER activemq
 WORKDIR ${ACTIVEMQ_HOME}
 
 #CMD ["/bin/sh", "-c", "bin/activemq console -Djetty.host=0.0.0.0"]
-CMD exec /bin/bash -c "trap : TERM INT; sleep infinity & wait"
+CMD exec /bin/ash -c "trap : TERM INT; sleep infinity & wait"
