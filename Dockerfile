@@ -19,7 +19,7 @@ RUN apk --no-cache add wget && \
     chmod -R 777 ${ACTIVEMQ_HOME} && \
     chmod -R 777 ${ACTIVEMQ_DATA} && \
     chmod -R 777 ${ACTIVEMQ_EXTRA_CONF} && \
-    chown -R activemq:activemq ${ACTIVEMQ_HOME} \
+    chown -R activemq:activemq ${ACTIVEMQ_HOME}
 
 EXPOSE 1883 5672 8161 61613 61614 61616
 
