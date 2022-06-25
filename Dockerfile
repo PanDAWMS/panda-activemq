@@ -26,4 +26,12 @@ EXPOSE 1883 5672 8161 61613 61614 61616
 USER activemq
 WORKDIR ${ACTIVEMQ_HOME}
 
-CMD /bin/sh -c "cp ${ACTIVEMQ_EXTRA_CONF}/*.xml conf/; bin/activemq console -Djetty.host=0.0.0.0"
+# make a wrapper script to launch service
+RUN echo $'#!/bin/bash \n\
+set -m \n\
+cp ${ACTIVEMQ_EXTRA_CONF}/*.xml ${ACTIVEMQ_HOME}/conf/ \n\
+${ACTIVEMQ_HOME}/bin/activemq console -Djetty.host=0.0.0.0 \n ' > ${ACTIVEMQ_HOME}/bin/run-activemq-services
+
+RUN chmod +x ${ACTIVEMQ_HOME}/bin/run-activemq-services
+
+CMD exec /bin/bash -c "trap : TERM INT; sleep infinity & wait"
