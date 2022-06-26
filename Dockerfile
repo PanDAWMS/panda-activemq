@@ -27,7 +27,7 @@ USER activemq
 WORKDIR ${ACTIVEMQ_HOME}
 
 # make a wrapper script to launch service
-RUN echo $'#!/bin/bash \n\
+RUN echo $'#!/bin/sh \n\
 set -m \n\
 cp ${ACTIVEMQ_EXTRA_CONF}/*.xml ${ACTIVEMQ_HOME}/conf/ \n\
 ${ACTIVEMQ_HOME}/bin/activemq console -Djetty.host=0.0.0.0 \n ' > ${ACTIVEMQ_HOME}/bin/run-activemq-services
