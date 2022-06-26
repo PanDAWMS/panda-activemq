@@ -7,7 +7,7 @@ ENV ACTIVEMQ_DATA /appdata/activemq
 ENV ACTIVEMQ_PIDFILE ${ACTIVEMQ_HOME}/tmp/activemq.pid
 ENV ACTIVEMQ_EXTRA_CONF /data/activemq
 
-RUN apk --no-cache add wget && \
+RUN apk --no-cache add wget python3 && \
     wget https://archive.apache.org/dist/activemq/${VERSION}/${ACTIVEMQ}-bin.tar.gz && \
     tar xvfz ${ACTIVEMQ}-bin.tar.gz && \
     mv ${ACTIVEMQ} ${ACTIVEMQ_HOME} && \
