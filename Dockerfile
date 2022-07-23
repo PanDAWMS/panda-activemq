@@ -23,7 +23,6 @@ RUN apk --no-cache add wget python3 && \
 
 EXPOSE 1883 5672 8161 61613 61614 61616
 
-USER activemq
 WORKDIR ${ACTIVEMQ_HOME}
 
 # make a wrapper script to launch service
